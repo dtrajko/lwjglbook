@@ -40,9 +40,6 @@ public class StaticMeshesLoader {
     }
 
     public static Mesh[] load(String resourcePath, String texturesDir, int flags) throws Exception {
-
-        System.out.println("StaticMeshesLoader::load [" + new File(resourcePath).getAbsolutePath() + "]");
-
         AIScene aiScene = aiImportFile(resourcePath, flags);
         if (aiScene == null) {
             throw new Exception("Error loading model");
