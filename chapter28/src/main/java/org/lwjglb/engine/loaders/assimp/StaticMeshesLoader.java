@@ -11,6 +11,7 @@ import static org.lwjgl.assimp.Assimp.aiProcess_Triangulate;
 import static org.lwjgl.assimp.Assimp.aiTextureType_DIFFUSE;
 import static org.lwjgl.assimp.Assimp.aiTextureType_NONE;
 
+import java.io.File;
 import java.nio.IntBuffer;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +40,9 @@ public class StaticMeshesLoader {
     }
 
     public static Mesh[] load(String resourcePath, String texturesDir, int flags) throws Exception {
+
+        System.out.println("StaticMeshesLoader::load [" + new File(resourcePath).getAbsolutePath() + "]");
+
         AIScene aiScene = aiImportFile(resourcePath, flags);
         if (aiScene == null) {
             throw new Exception("Error loading model");
